@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Snapshot :: camera and gallery viewer</title>
+	<meta name="viewport" content="width=device-width">
+	<link href="dist/brick.css" type="text/css" rel="stylesheet" media="all and (max-width: 480px)">
+	<link href="style.css" type="text/css" rel="stylesheet">
+	<script src="dist/brick.js"></script>
+</head>
+<body>
+
+<header>
+  <div class="navbar">
+    <button class="takeBtn">Take</button>
+    <button class="showBtn">Show</button>
+    <button class="galleryBtn">Gallery</button>
+  </div>
+</header>
+
+<x-deck selected-index="0">
+    <x-card>
+      <video></video>
+      <button class="snap">Take picture</button>
+    </x-card>
+    <x-card>
+        <canvas class="canvas"></canvas>
+        <img src="" class="photo">
+        <button class="save">Save picture</button>
+    </x-card>
+    <x-card>
+        
+    </x-card>
+</x-deck>
+
+<script src="main.js"></script>	
+</body>
+</html>

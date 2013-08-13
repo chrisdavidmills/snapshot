@@ -1,0 +1,223 @@
+x-card, x-deck {
+  display: block;
+}
+
+html {
+  font-size: 10px;
+  font-family: sans-serif;
+}
+
+html, body {
+  margin: 0;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+/* general set up and layout */
+
+.navbar {
+  display: none;
+}
+
+body {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+x-card {
+  width: 100%;
+  position: relative;
+}
+
+x-card:nth-child(2) canvas {
+  display: none;
+}
+
+x-card:nth-child(1), x-card:nth-child(2) {
+  width: 30%;
+  float: left;
+  padding: 2rem;
+}
+
+x-card:nth-child(3) {
+  width: 40%;
+  float: left;
+  height: 100%;
+  overflow: auto;
+  padding: 2rem;
+}
+
+button {
+  border: 0;
+  margin: 0;
+  background-color: rgb(200,200,200);
+  background-color: rgba(200,200,200,0.9);
+  background: linear-gradient(to bottom, rgba(230,230,230,0.9), rgba(200,200,200,0.9));
+  box-shadow: 0px 5px 5px rgba(0,0,0,0.4),
+	              inset 0px 4px 3px rgba(255,255,255,0.3),
+	              inset 0px -4px 3px rgba(0,0,0,0.3);
+  border: 1px solid rgba(0,0,0,0.5);
+  border-radius: 10px;
+  
+  width: 100%;
+  font-size: 2.4rem;
+  line-height: 2.5;
+  margin-top: 10px;
+}
+
+button.cancel {
+  background: linear-gradient(to bottom, rgba(230,0,0,0.9), rgba(200,0,0,0.9));
+}
+
+video, img {
+  display: block;
+}
+
+video {
+-webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+/* the styling of the whole deck */
+
+html {
+  background-color: black;
+}
+
+x-deck {
+  background-image: url(images/carbon2.jpg);
+}
+
+/* the take picture card styling and view snapshot card styling */
+
+x-card:nth-child(1) video, x-card:nth-child(2) img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  border: 3px solid black;
+  padding: 8px;
+  background-color: white;
+}
+
+/* the gallery styling */
+
+x-card:nth-child(3) img {
+  width: 33%;
+  float: left;
+}
+
+/* Styling for medium layout - very few changes here, except that the gallery goes below the take picture and view capture boxes   */
+
+@media all and (max-width: 1024px) {
+  x-card:nth-child(1), x-card:nth-child(2) {
+    width: 50%;
+  }
+
+  x-card:nth-child(3) {
+    width: 100%;
+    clear: left;
+  }
+  
+  x-card:nth-child(3) img {
+    width: 20%;
+  }
+  
+  x-card:nth-child(1) video, x-card:nth-child(2) img {
+    max-width: none;
+  }
+
+}
+
+/* Styling for mobile app view starts here; note that upon the screen size getting to this   */
+
+@media all and (max-width: 480px) {  
+/* styling resets for the mobile view */
+  x-card:nth-child(1), x-card:nth-child(2), x-card:nth-child(3) {
+    width: 100%;
+    float: none;
+    padding: 0;
+  }
+  
+  button {
+    margin-top: 0;
+    border-radius: 0;
+  }
+  
+  x-card:nth-child(1) video, x-card:nth-child(2) img {
+    border-radius: 0px;
+    border: none;
+    padding: 0;
+    background-color: 0;
+  }
+
+  /* general card styling */
+  x-card {
+    margin-top: 17.5vw;
+  }
+  
+  /* the take picture card styling */
+  
+  x-card:nth-child(1) video {
+    max-width: 100%;  
+  }
+  
+  x-card:nth-child(1) button {
+    font-size: 7vw;
+  }
+  
+  /* the view snapshot card styling */
+  
+  x-card:nth-child(2) canvas {
+    display: none;
+  }
+  
+  x-card:nth-child(2) button {
+    font-size: 7vw;
+  }
+
+  
+  /* the gallery card styling */
+  
+  x-card:nth-child(3) img {
+    display: block;
+    width: 50%;
+    float: left;
+  }
+
+/* the header and nav styling for the mobile view */
+	  
+  header {
+    position: absolute;
+    z-index: 1000;
+    width: 100%;
+  }
+	  
+  .navbar {   
+    width: 100%;
+     
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  
+  .navbar button {
+    font-size: 7vw;
+    
+    -webkit-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    
+    border-left: 1px solid rgba(100,100,100,0.4); 
+  }
+  
+  .navbar button:first-child {
+    border-left: 0;
+  }
+}
