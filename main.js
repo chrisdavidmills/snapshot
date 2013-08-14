@@ -33,35 +33,27 @@ var photo = document.querySelector('.photo');
 var save = document.querySelector('.save');
 save.style.display = 'none';
 
-navigator.getMedia = ( navigator.getUserMedia ||
-                       navigator.webkitGetUserMedia ||
-                       navigator.mozGetUserMedia ||
-                       navigator.msGetUserMedia);
-window.URL = window.URL || window.webkitURL || window.mozURL || window.msURL;
+navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 
-navigator.getMedia (
+var constraints = {audio: false, video: true};
+var video = document.querySelector("video");
 
-   // constraints
-   {
-      video: true,
-      audio: false
-   },
+function successCallback(stream) {
+  window.stream = stream; // stream available to console
+  if (window.URL) {
+    video.src = window.URL.createObjectURL(stream);
+  } else {
+    video.src = stream;
+  }
+  video.play();
+}
 
-   // successCallback
-   function(localMediaStream) {
-   
-      video.src = (window.URL && window.URL.createObjectURL(localMediaStream)) || localMediaStream;
-      video.onloadedmetadata = function(e) {
-         video.play();
-      };
-   },
+function errorCallback(error){
+  console.log("navigator.getUserMedia error: ", error);
+}
 
-   // errorCallback
-   function(err) {
-    console.log('There is a problem with getUserMedia support in your browser: ' + err.code);
-   }
+navigator.getUserMedia(constraints, successCallback, errorCallback);
 
-);
 
 // take a picture and store it in the canvas when the take picture button is pressed
 
