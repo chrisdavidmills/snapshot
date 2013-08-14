@@ -20,7 +20,7 @@ html, body {
 
 /* general set up and layout */
 
-.navbar {
+nav {
   display: none;
 }
 
@@ -97,7 +97,6 @@ x-deck {
 
 x-card:nth-child(1) video, x-card:nth-child(2) img {
   width: 100%;
-  max-width: 400px;
   border-radius: 10px;
   border: 3px solid black;
   padding: 8px;
@@ -126,11 +125,6 @@ x-card:nth-child(3) img {
   x-card:nth-child(3) img {
     width: 20%;
   }
-  
-  x-card:nth-child(1) video, x-card:nth-child(2) img {
-    max-width: none;
-  }
-
 }
 
 /* Styling for mobile app view starts here; note that upon the screen size getting to this   */
@@ -162,19 +156,12 @@ x-card:nth-child(3) img {
   
   /* the take picture card styling */
   
-  x-card:nth-child(1) video {
-    max-width: 100%;  
-  }
-  
   x-card:nth-child(1) button {
     font-size: 7vw;
   }
   
   /* the view snapshot card styling */
   
-  x-card:nth-child(2) canvas {
-    display: none;
-  }
   
   x-card:nth-child(2) button {
     font-size: 7vw;
@@ -184,21 +171,15 @@ x-card:nth-child(3) img {
   /* the gallery card styling */
   
   x-card:nth-child(3) img {
-    display: block;
     width: 50%;
-    float: left;
   }
 
-/* the header and nav styling for the mobile view */
+/* the nav styling for the mobile view */
 	  
-  header {
+  nav {   
+    width: 100%;
     position: absolute;
     z-index: 1000;
-    width: 100%;
-  }
-	  
-  .navbar {   
-    width: 100%;
      
     display: -webkit-flex;
     display: -moz-flex;
@@ -206,8 +187,8 @@ x-card:nth-child(3) img {
     display: flex;
   }
   
-  .navbar button {
-    font-size: 7vw;
+  nav button {
+    font-size: 6.8vw;
     
     -webkit-flex: 1;
     -moz-flex: 1;
@@ -217,7 +198,7 @@ x-card:nth-child(3) img {
     border-left: 1px solid rgba(100,100,100,0.4); 
   }
   
-  .navbar button:first-child {
+  nav button:first-child {
     border-left: 0;
   }
 }
