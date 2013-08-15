@@ -202,3 +202,41 @@ x-card:nth-child(3) img {
     border-left: 0;
   }
 }
+
+@media all and (max-width: 480px) and (orientation: landscape) {
+
+  nav {   
+    width: auto;
+    
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  
+  nav button {
+    font-size: 6.8vh;
+  }
+  
+  nav button {
+    border-left: 0;
+  }
+
+  x-card {
+    margin-top: 0;
+  }
+  
+  x-card:nth-child(1) button, x-card:nth-child(2) button {
+    font-size: 6.8vh;
+    position: absolute;
+    bottom: 0;
+  }
+  
+  x-card:nth-child(2) button:nth-of-type(2) {
+    bottom: 5.9rem;
+  }
+  
+  x-card:nth-child(2) button:nth-of-type(3) {
+    bottom: 0rem;
+  }
+}
