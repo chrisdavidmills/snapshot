@@ -150,8 +150,17 @@ x-card:nth-child(3) img {
   }
 
   /* general card styling */
-  x-card {
+  x-card:nth-child(1) video, x-card:nth-child(2) img, x-card:nth-child(3) {
     margin-top: 17.5vw;
+  }
+  
+  x-card:nth-child(1) button, x-card:nth-child(2) button {
+    position: absolute;
+    bottom: 0;
+  }
+  
+  x-card:nth-child(2) button:nth-of-type(2) {
+    bottom: 5.9rem;
   }
   
   /* the take picture card styling */
@@ -221,22 +230,12 @@ x-card:nth-child(3) img {
   nav button {
     border-left: 0;
   }
-
-  x-card {
+  
+  x-card:nth-child(1) video, x-card:nth-child(2) img, x-card:nth-child(3) {
     margin-top: 0;
   }
   
   x-card:nth-child(1) button, x-card:nth-child(2) button {
-    font-size: 6.8vh;
-    position: absolute;
-    bottom: 0;
-  }
-  
-  x-card:nth-child(2) button:nth-of-type(2) {
-    bottom: 5.9rem;
-  }
-  
-  x-card:nth-child(2) button:nth-of-type(3) {
-    bottom: 0rem;
+    font-size: 2rem;
   }
 }
