@@ -39,29 +39,31 @@ navigator.getMedia = ( navigator.getUserMedia ||
                        navigator.msGetUserMedia);
 window.URL = window.URL || window.webkitURL || window.mozURL || window.msURL;
 
-navigator.getMedia (
+if (navigator.getMedia) {
+    navigator.getMedia (
 
-   // constraints
-   {
-      video: true,
-      audio: false
-   },
+       // constraints
+       {
+          video: true,
+          audio: false
+       },
 
-   // successCallback
-   function(localMediaStream) {
-   
-      video.src = (window.URL && window.URL.createObjectURL(localMediaStream)) || localMediaStream;
-      video.onloadedmetadata = function(e) {
-         video.play();
-      };
-   },
+       // successCallback
+       function(localMediaStream) {
+       
+          video.src = (window.URL && window.URL.createObjectURL(localMediaStream)) || localMediaStream;
+          video.play();
+       },
 
-   // errorCallback
-   function(err) {
-    console.log('There is a problem with getUserMedia support in your browser: ' + err.code);
-   }
+       // errorCallback
+       function(err) {
+        console.log('There is a problem with getUserMedia support in your browser: ' + err.code);
+       }
 
-);
+    );
+} else {
+    console.log('getUserMedia not supported');
+}
 
 // take a picture and store it in the canvas when the take picture button is pressed
 
